@@ -19,4 +19,4 @@ RUN rm index.html
 COPY /html /var/www/html
 
 # Install Bedrock dependencies
-RUN composer install --no-ansi --no-dev --no-interaction --no-plugins --no-progress --no-scripts --no-suggest --optimize-autoloader
+CMD composer install --no-interaction --optimize-autoloader
