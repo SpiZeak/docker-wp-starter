@@ -1,0 +1,40 @@
+version: "3.7"
+services:
+  db:
+    container_name: db
+    image: mysql
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./db:/etc/mysql/conf.d
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+    expose:
+      - 3306
+  web:
+    container_name: web
+    image: nginx
+    ports:
+      - 80:80
+    volumes:
+      - ./web:/var/www/html/
+      - ./nginx:/etc/nginx/conf.d
+    depends_on:
+      - php
+      - db
+  php:
+    container_name: php
+    image: php:fpm
+    volumes:
+      - ./web:/var/www/html
+    expose:
+      - 9000
+    depends_on:
+      - db
+networks:
+  nginxphp:
+volumes:
+  db_data:
