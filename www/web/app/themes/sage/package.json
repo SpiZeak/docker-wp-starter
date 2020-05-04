@@ -5,7 +5,7 @@
   ],
   "scripts": {
     "build": "npx cross-env NODE_ENV=development run-s mix",
-    "build:production": "cross-env NODE_ENV=production run-s clean mix",
+    "build:production": "npx cross-env NODE_ENV=production run-s clean mix",
     "start": "npx cross-env NODE_ENV=development run-s \"mix -- --watch\"",
     "hot": "npx cross-env NODE_ENV=development run-s build mix:hot",
     "mix": "npx webpack-cli --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
