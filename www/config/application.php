@@ -48,6 +48,11 @@ if (file_exists($root_dir . '/.env')) {
 define('WP_ENV', env('WP_ENV') ?: 'production');
 
 /**
+ * Set default theme
+ */
+define( 'WP_DEFAULT_THEME', 'sage' );
+
+/**
  * URLs
  */
 Config::define('WP_HOME', env('WP_HOME'));
