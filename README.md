@@ -1,0 +1,4 @@
+## Requirements
+- Node
+- Docker
+- Composer
